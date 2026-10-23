@@ -51,7 +51,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px 16px 40p
 <div class="toast" id="toast">تم النسخ ✓</div>
 <footer>ورشة «يوم تجهيز Claude» · الأسماء التقنية للمهارات بالإنجليزي، لكن النداء بالعربي يكفي.</footer>
 <script>
-const SKILLS=[
+var SKILLS=[
  {ar:"صوتي السعودي",en:"saudi-voice",icon:"🗣️",what:"يكلّمك بلهجة سعودية بسيطة، بدون كلمات إنجليزية وبدون فصحى ثقيلة.",when:["في كل محادثة عادية (شرح، سؤال، تلخيص سريع).","لا تُستخدم للخطابات والعقود الرسمية؛ هذي تبقى فصحى."],ex:"استخدم مهارة صوتي السعودي: اشرح لي وش يعني الموصل."},
  {ar:"وضّح أولًا",en:"clarify-first",icon:"🎯",what:"قبل ما ينفّذ طلبك، يسألك 3 أسئلة بالكثير عن الهدف والجمهور وشكل النتيجة، عشان تطلع النتيجة صح من أول مرة.",when:["طلب غامض أو كبير أو له أكثر من جزء.","أي طلب نتيجته ملف أو رسالة أو تحليل."],ex:"استخدم مهارة وضّح أولًا: أبغى رسالة لعميل تأخر في السداد."},
  {ar:"كاتب المراسلات",en:"my-voice-correspondence",icon:"✉️",what:"يكتب إيميل أو خطاب أو رسالة واتساب عمل بأسلوبك أنت، مع الألقاب والصيغ السعودية.",when:["رد على إيميل أو رسالة.","خطاب رسمي لجهة أو مدير.","أول مرة: الصق 3 رسائل كتبتها بنفسك عشان يتعلم أسلوبك."],ex:"استخدم مهارة كاتب المراسلات: رد على هذا الإيميل بالموافقة مع طلب تمديد أسبوع."},
@@ -62,9 +62,13 @@ const SKILLS=[
  {ar:"وكيل",en:"wakeel-lite",icon:"🤖",what:"تعطيه هدفًا على ملفات، فيخطط 3-7 خطوات وينفّذها خطوة خطوة على نسخ من الملفات، ويعطيك تقريرًا: تمّ / يحتاجك.",when:["مهمة فيها عدة خطوات على مجلد أو ملفات.","مثال: نظّف ملف المبيعات واستخرج أعلى 3 منتجات في ملف جديد."],ex:"استخدم مهارة وكيل: نظّف هذا الملف واستخرج أعلى 3 منتجات في ملف جديد وأعطني تقريرًا."},
  {ar:"استشارة",en:"consult-lite",icon:"⚖️",what:"قبل أي قرار، يعطيك 3 زوايا: متفائل، ناقد، عملي، ثم توصية والشرط اللي يغيّرها. (زوايا محاكاة من نموذج واحد، مو خبراء حقيقيين.)",when:["أوقّع ولا لا؟ أقبل العرض؟ أبدأ المشروع؟","أي قرار فيه مال أو التزام."],ex:"استخدم مهارة استشارة: هل أقبل عرض المورد هذا؟"}
 ];
-const grid=document.getElementById('grid'),dlg=document.getElementById('dlg'),body=document.getElementById('dlgBody'),toast=document.getElementById('toast');
-SKILLS.forEach((s,i)=>{const c=document.createElement('div');c.className='card';c.tabIndex=0;c.innerHTML=`<div class="icon">${s.icon}</div><h2>${s.ar}</h2><p>${s.what.split('،')[0].split('.')[0]}.</p><div class="cmd">استخدم مهارة ${s.ar}</div>`;c.onclick=()=>open(s);c.onkeydown=e=>{if(e.key==='Enter')open(s)};grid.appendChild(c);});
-function open(s){body.innerHTML=`<h2>${s.icon} ${s.ar}</h2><div class="en">${s.en}</div><h3>وش تسوي؟</h3><p>${s.what}</p><h3>متى أستخدمها؟</h3><ul>${s.when.map(w=>`<li>${w}</li>`).join('')}</ul><h3>مثال جاهز — انسخه والصقه في المحادثة</h3><div class="cmdbox"><code>${s.ex}</code><button class="copy">انسخ</button></div><button class="close">إغلاق</button>`;body.querySelector('.copy').onclick=()=>copy(s.ex);body.querySelector('.close').onclick=()=>dlg.close();dlg.showModal();}
-function copy(t){try{navigator.clipboard.writeText(t).then(show,()=>fallback(t))}catch(e){fallback(t)}}
-function fallback(t){const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');show()}catch(e){}ta.remove()}
-function show(){toast.classList.add('show');setTimeout(()=>toast.classList.remove(
+var grid=document.getElementById('grid'),dlg=document.getElementById('dlg'),body=document.getElementById('dlgBody'),toast=document.getElementById('toast');
+SKILLS.forEach(function(s){var c=document.createElement('div');c.className='card';c.tabIndex=0;c.innerHTML='<div class="icon">'+s.icon+'</div><h2>'+s.ar+'</h2><p>'+s.what.split('،')[0].split('.')[0]+'.</p><div class="cmd">استخدم مهارة '+s.ar+'</div>';c.onclick=function(){openSkill(s)};c.onkeydown=function(e){if(e.key==='Enter')openSkill(s)};grid.appendChild(c);});
+function openSkill(s){body.innerHTML='<h2>'+s.icon+' '+s.ar+'</h2><div class="en">'+s.en+'</div><h3>وش تسوي؟</h3><p>'+s.what+'</p><h3>متى أستخدمها؟</h3><ul>'+s.when.map(function(w){return '<li>'+w+'</li>'}).join('')+'</ul><h3>مثال جاهز — انسخه والصقه في المحادثة</h3><div class="cmdbox"><code>'+s.ex+'</code><button class="copy">انسخ</button></div><button class="close">إغلاق</button>';body.querySelector('.copy').onclick=function(){copyText(s.ex)};body.querySelector('.close').onclick=function(){dlg.close()};dlg.showModal();}
+function copyText(t){try{navigator.clipboard.writeText(t).then(showToast,function(){fallbackCopy(t)})}catch(e){fallbackCopy(t)}}
+function fallbackCopy(t){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast()}catch(e){}ta.remove()}
+function showToast(){toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},1400)}
+dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+</script>
+</body>
+</html>
