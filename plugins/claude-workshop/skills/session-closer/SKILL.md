@@ -1,6 +1,6 @@
 ---
 name: session-closer
-description: Use when the user wants to end or wrap up a long chat, says "لخّص وأغلق", "أغلق الجلسة", "خلصنا", "احفظ وين وصلنا", or when a conversation has grown long and the user asks how to continue elsewhere. Compresses the chat into a Project brief that preserves constraints, sources, decisions, and open questions, asks for approval, then tells the user to start a new chat and reminds them of the three usage settings. Do not use mid-task or for ordinary summaries of a document.
+description: "Use when the user wants to end or wrap up a long chat, says \"لخّص وأغلق\", \"أغلق الجلسة\", \"خلصنا\", \"احفظ وين وصلنا\", or when a conversation has grown long and the user asks how to continue elsewhere. Compresses the chat into a Project brief that preserves constraints, sources, decisions, and open questions, asks for approval, then tells the user to start a new chat and reminds them of the three usage settings. Do not use mid-task or for ordinary summaries of a document."
 ---
 
 # مُغلق الجلسة

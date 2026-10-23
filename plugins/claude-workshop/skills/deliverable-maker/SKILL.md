@@ -1,6 +1,6 @@
 ---
 name: deliverable-maker
-description: Use when the user has an approved outline, summary, or content and asks to turn it into a finished downloadable file: Word (docx), PowerPoint (pptx), or Excel (xlsx), e.g. "حوّله لملف", "سوّ لي عرض", "اطلعه Word". Picks the format from context, uses the built-in docx/pptx/xlsx skills, applies Arabic right-to-left layout checks, and ends with a one-line summary. Do not use when content is still being drafted or the user only wants text in chat.
+description: "Use when the user has an approved outline, summary, or content and asks to turn it into a finished downloadable file: Word (docx), PowerPoint (pptx), or Excel (xlsx), e.g. \"حوّله لملف\", \"سوّ لي عرض\", \"اطلعه Word\". Picks the format from context, uses the built-in docx/pptx/xlsx skills, applies Arabic right-to-left layout checks, and ends with a one-line summary. Do not use when content is still being drafted or the user only wants text in chat."
 ---
 
 # صانع الملفات

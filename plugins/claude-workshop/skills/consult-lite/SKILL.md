@@ -1,6 +1,6 @@
 ---
 name: consult-lite
-description: Use when the user asks for an opinion, advice, or a decision check on a business, career, or project choice, e.g. "استشارة", "وش رايك", "أسوي ولا ما أسوي", "هل القرار صح". Opens with a mandatory disclaimer that the perspectives are simulated by one model, gives optimist, critic, and pragmatist angles (5 lines each), a recommendation with the single assumption that would flip it, and names one real human to consult. Do not use for factual lookups, legal or medical rulings, or tasks that produce files.
+description: "Use when the user asks for an opinion, advice, or a decision check on a business, career, or project choice, e.g. \"استشارة\", \"وش رايك\", \"أسوي ولا ما أسوي\", \"هل القرار صح\". Opens with a mandatory disclaimer that the perspectives are simulated by one model, gives optimist, critic, and pragmatist angles (5 lines each), a recommendation with the single assumption that would flip it, and names one real human to consult. Do not use for factual lookups, legal or medical rulings, or tasks that produce files."
 ---
 
 # استشارة (زوايا محاكاة)
