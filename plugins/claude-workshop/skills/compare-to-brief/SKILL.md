@@ -1,6 +1,6 @@
 ---
 name: compare-to-brief
-description: "Use when the user asks to check, verify, audit, or review a produced output (file, letter, report, table) against the original brief, request, or source document, e.g. \"قارن بالموجز\", \"تأكد من الملف\", \"راجع الأرقام\", \"هل هذا صحيح\". Compares item by item, recomputes numbers with the code tool, marks unsourced claims as \"غير مدعوم\", gives a 0-10 confidence that is explicitly not verification, and proposes one surgical fix. Do not use to produce new content."
+description: "Arabic call-name: «راجع النتيجة» (also: استخدم مهارة راجع النتيجة). Use when the user asks to check, verify, audit, or review a produced output (file, letter, report, table) against the original brief, request, or source document, e.g. \"قارن بالموجز\", \"تأكد من الملف\", \"راجع الأرقام\", \"هل هذا صحيح\". Compares item by item, recomputes numbers with the code tool, marks unsourced claims as \"غير مدعوم\", gives a 0-10 confidence that is explicitly not verification, and proposes one surgical fix. Do not use to produce new content."
 ---
 
 # قارن بالموجز

@@ -4,7 +4,7 @@
 1. Customize > Plugins > **Add** > **Add marketplace** > **Add from a repository**.
 2. اكتب: `msrr66/claude-workshop-plugin` (أو رابط المستودع كاملًا).
 3. افتح تبويب **Discover**، اختر **claude-workshop**، واضغط **Add**.
-4. فعّل الإضافة. المهارات التسع تصير جاهزة؛ استدعِ أي مهارة باسمها الصريح: «استخدم مهارة compare-to-brief».
+4. فعّل الإضافة. المهارات التسع تصير جاهزة؛ استدعِ أي مهارة باسمها الصريح: «استخدم مهارة راجع النتيجة».
 
 ## التثبيت في Claude Code
 ```
@@ -12,18 +12,18 @@ claude plugin marketplace add msrr66/claude-workshop-plugin
 claude plugin install claude-workshop@claude-workshop-marketplace
 ```
 
-## المهارات
-| المهارة | متى |
-|---|---|
-| saudi-voice | يكلّمك بلهجة سعودية بسيطة في كل محادثة (الفصحى للرسمي فقط) |
-| clarify-first | قبل أي طلب غامض أو متعدد الأجزاء |
-| my-voice-correspondence | إيميل أو خطاب بصوتك (3 عينات) |
-| document-distiller | ملف طويل → جدول أرقام/مخاطر/قرارات/إجراءات |
-| deliverable-maker | محتوى معتمد → Word/PowerPoint/Excel |
-| compare-to-brief | مراجعة مخرج مقابل الطلب مع إعادة حساب الأرقام |
-| session-closer | إغلاق محادثة طويلة في موجز Project |
-| wakeel-lite | تفويض مهمة ملفات محدودة خطوة خطوة |
-| consult-lite | 3 زوايا محاكاة + توصية قبل قرار |
+## المهارات (النداء بالعربي: «استخدم مهارة …»)
+| النداء بالعربي | الاسم التقني | متى |
+|---|---|---|
+| صوتي السعودي | saudi-voice | يكلّمك بلهجة سعودية بسيطة (الفصحى للرسمي فقط) |
+| وضّح أولًا | clarify-first | قبل أي طلب غامض أو متعدد الأجزاء |
+| كاتب المراسلات | my-voice-correspondence | إيميل أو خطاب بصوتك |
+| لخّص المستند | document-distiller | ملف طويل → جدول أرقام/مخاطر/قرارات/إجراءات |
+| صانع الملفات | deliverable-maker | محتوى معتمد → Word/PowerPoint/Excel |
+| راجع النتيجة | compare-to-brief | مراجعة مخرج مقابل الطلب مع إعادة حساب الأرقام |
+| أغلق الجلسة | session-closer | إغلاق محادثة طويلة في موجز |
+| وكيل | wakeel-lite | تفويض مهمة ملفات خطوة خطوة |
+| استشارة | consult-lite | 3 زوايا + توصية قبل قرار |
 
 ## البديل بلا سوق
 ارفع ملفات ZIP الثمانية دفعة واحدة من Customize > Skills > Add > Upload skill.

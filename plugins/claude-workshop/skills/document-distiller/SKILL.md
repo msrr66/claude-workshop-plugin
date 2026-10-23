@@ -1,6 +1,6 @@
 ---
 name: document-distiller
-description: "Use when the user uploads or pastes a PDF, Excel, Word, or long text and asks to summarize, extract key points, \"لخّص\", \"قطّر\", or \"ما المهم في هذا الملف\". Produces a fixed four-column table (key numbers, risks, decisions needed, actions with owner and date) plus 3 open questions, with every number citing its source page or line. Do not use for short messages or when the user wants a rewrite rather than a distillation."
+description: "Arabic call-name: «لخّص المستند» (also: استخدم مهارة لخّص المستند). Use when the user uploads or pastes a PDF, Excel, Word, or long text and asks to summarize, extract key points, \"لخّص\", \"قطّر\", or \"ما المهم في هذا الملف\". Produces a fixed four-column table (key numbers, risks, decisions needed, actions with owner and date) plus 3 open questions, with every number citing its source page or line. Do not use for short messages or when the user wants a rewrite rather than a distillation."
 ---
 
 # مُلخّص المستندات

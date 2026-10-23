@@ -21,7 +21,7 @@
 - [ ] **الأسهل (إضافة واحدة):** Customize > **Plugins** > Add > **Add marketplace** > Add from a repository > اكتب `msrr66/claude-workshop-plugin` > ثم Discover > **claude-workshop** > Add. المهارات الثماني تُثبَّت دفعة واحدة.
 - [ ] **البديل (ملفات ZIP):** في Claude: **Customize > Skills > Add > Upload skill**. تستطيع اختيار **الملفات الثمانية دفعة واحدة** ثم «Upload 8 skills». يجري فحص أمان تلقائي على كل ملف.
 - [ ] تأكد أن كل مهارة **مفعّلة** (زر التبديل أخضر).
-- [ ] **اختبار:** في محادثة جديدة اكتب: «استخدم مهارة clarify-first: أريد رسالة لعميل». يجب أن يسألك أسئلة مرقمة. (اذكر اسم المهارة الإنجليزي دائمًا.)
+- [ ] **اختبار:** في محادثة جديدة اكتب: «استخدم مهارة وضّح أولًا: أريد رسالة لعميل». يجب أن يسألك أسئلة مرقمة. (اذكر اسم المهارة الإنجليزي دائمًا.)
 الأسماء: clarify-first، my-voice-correspondence، document-distiller، deliverable-maker، compare-to-brief، session-closer، wakeel-lite، consult-lite.
 
 ## الخطوة 3 — المدرّب الرقمي (5 دقائق)

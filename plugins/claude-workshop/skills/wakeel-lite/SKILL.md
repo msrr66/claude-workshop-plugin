@@ -1,6 +1,6 @@
 ---
 name: wakeel-lite
-description: "Use when the user delegates a bounded multi-step file task and wants it done end to end, e.g. \"وكيل\", \"سوّها كاملة\", \"خذ هذه الملفات واطلع لي...\", \"نفّذ من البداية للنهاية\". Turns the goal into a 3-7 step plan, executes step by step on copies of files only, stops after 7 steps or 2 obstacles, requires explicit approval before any send, delete, or overwrite, and reports each step as done or needs-you. Do not use for open-ended research, single-step requests, or anything touching email, payments, or external systems."
+description: "Arabic call-name: «وكيل» (also: استخدم مهارة وكيل). Use when the user delegates a bounded multi-step file task and wants it done end to end, e.g. \"وكيل\", \"سوّها كاملة\", \"خذ هذه الملفات واطلع لي...\", \"نفّذ من البداية للنهاية\". Turns the goal into a 3-7 step plan, executes step by step on copies of files only, stops after 7 steps or 2 obstacles, requires explicit approval before any send, delete, or overwrite, and reports each step as done or needs-you. Do not use for open-ended research, single-step requests, or anything touching email, payments, or external systems."
 ---
 
 # وكيل (نسخة محدودة)

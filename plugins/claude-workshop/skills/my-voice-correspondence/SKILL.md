@@ -1,6 +1,6 @@
 ---
 name: my-voice-correspondence
-description: "Use when the user asks to write, reply to, or polish a business email, formal letter, memo, or WhatsApp message in Arabic for a Saudi workplace or government context, or says \"بصوتي\" / \"بأسلوبي\". Mimics the user's own writing voice from 3 stored samples, applies Saudi honorifics and letter formats, and suggests subject lines. Do not use for reports, marketing copy, or English-only correspondence."
+description: "Arabic call-name: «كاتب المراسلات» (also: استخدم مهارة كاتب المراسلات). Use when the user asks to write, reply to, or polish a business email, formal letter, memo, or WhatsApp message in Arabic for a Saudi workplace or government context, or says \"بصوتي\" / \"بأسلوبي\". Mimics the user's own writing voice from 3 stored samples, applies Saudi honorifics and letter formats, and suggests subject lines. Do not use for reports, marketing copy, or English-only correspondence."
 ---
 
 # كاتب المراسلات بصوتي

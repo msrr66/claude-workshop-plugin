@@ -1,6 +1,6 @@
 ---
 name: clarify-first
-description: "Use at the start of any new task request in Arabic or English, before producing output, when the request is vague, multi-part, or will produce a file, letter, or analysis. Extracts goal, audience, constraints, and deliverable format; asks at most 3 numbered questions only if the answers would change the result. Do not use for simple questions, chit-chat, or follow-ups inside an ongoing task."
+description: "Arabic call-name: «وضّح أولًا» (also: استخدم مهارة وضّح أولًا). Use at the start of any new task request in Arabic or English, before producing output, when the request is vague, multi-part, or will produce a file, letter, or analysis. Extracts goal, audience, constraints, and deliverable format; asks at most 3 numbered questions only if the answers would change the result. Do not use for simple questions, chit-chat, or follow-ups inside an ongoing task."
 ---
 
 # وضّح أولًا
