@@ -26,6 +26,9 @@ claude plugin install claude-workshop@claude-workshop-marketplace
 | وكيل | wakeel-lite | تفويض مهمة ملفات خطوة خطوة |
 | استشارة | consult-lite | 3 زوايا + توصية قبل قرار |
 
+## التحديث لاحقًا
+محادثة جديدة عادية (خارج أي مشروع) + Ctrl+Shift+B، ثم: «نفّذ تعليمات هذا الملف كاملة: https://raw.githubusercontent.com/msrr66/claude-workshop-plugin/main/UPDATE.md»
+
 ## البديل بلا سوق
 ارفع ملفات ZIP الثمانية دفعة واحدة من Customize > Skills > Add > Upload skill.
 
