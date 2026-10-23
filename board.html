@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>لوحة مهاراتي</title>
+<meta name="description" content="لوحة مهارات ورشة «يوم تجهيز Claude»: اضغط على المهارة لتعرف متى تستخدمها وتنسخ أمرها.">
+<style>
+:root{--bg:#0f1115;--card:#1a1d24;--card2:#232833;--text:#f2f3f5;--muted:#a7adba;--accent:#d8a24a;--ok:#4fc38a;--radius:18px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Segoe UI",Tahoma,"Noto Naskh Arabic",system-ui,sans-serif;line-height:1.7}
+header{padding:28px 16px 8px;text-align:center}
+header h1{margin:0;font-size:28px}
+header p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.rule{margin:14px auto 0;max-width:720px;background:var(--card2);border-radius:12px;padding:10px 14px;font-size:15px}
+.rule b{color:var(--accent)}
+main{max-width:1000px;margin:0 auto;padding:16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid #2a3040;border-radius:var(--radius);padding:18px 16px;cursor:pointer;transition:transform .12s,border-color .12s;min-height:150px;display:flex;flex-direction:column;gap:6px}
+.card:hover,.card:focus{transform:translateY(-2px);border-color:var(--accent);outline:none}
+.card .icon{font-size:30px}
+.card h2{margin:0;font-size:19px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.card .cmd{margin-top:auto;font-size:13px;color:var(--accent)}
+dialog{border:none;border-radius:var(--radius);background:var(--card);color:var(--text);max-width:560px;width:calc(100% - 32px);padding:0}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+.dlg{padding:22px 20px}
+.dlg h2{margin:0 0 4px;font-size:24px}
+.dlg .en{color:var(--muted);font-size:13px;direction:ltr;text-align:right}
+.dlg h3{margin:16px 0 4px;font-size:15px;color:var(--accent)}
+.dlg p,.dlg li{margin:0;font-size:15px}
+.dlg ul{margin:0;padding-inline-start:18px}
+.cmdbox{margin-top:14px;background:#0b0d11;border:1px dashed #3a4152;border-radius:12px;padding:12px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cmdbox code{font-size:16px;font-family:inherit}
+button{font-family:inherit;font-size:15px;border:none;border-radius:10px;padding:9px 14px;cursor:pointer}
+.copy{background:var(--accent);color:#1b1405;font-weight:700}
+.close{background:var(--card2);color:var(--text);margin-top:14px;width:100%}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ok);color:#06240f;padding:10px 18px;border-radius:999px;font-weight:700;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px 16px 40px}
+@media (prefers-color-scheme: light){:root{--bg:#f6f4ee;--card:#fff;--card2:#efeadd;--text:#1d1d1f;--muted:#5b6170}.card{border-color:#e4dfd2}.cmdbox{background:#faf7f0;border-color:#cfc6b3}}
+</style>
+</head>
+<body>
+<header>
+  <h1>لوحة مهاراتي</h1>
+  <p>اضغط على المهارة لتعرف وش تسوي ومتى تستخدمها، وانسخ أمرها.</p>
+  <div class="rule"><b>القاعدة الذهبية:</b> اكتب اسم المهارة بالعربي صراحة: «استخدم مهارة لخّص المستند». ثم الصق ملفك أو طلبك.</div>
+</header>
+<main id="grid"></main>
+<dialog id="dlg"><div class="dlg" id="dlgBody"></div></dialog>
+<div class="toast" id="toast">تم النسخ ✓</div>
+<footer>ورشة «يوم تجهيز Claude» · الأسماء التقنية للمهارات بالإنجليزي، لكن النداء بالعربي يكفي.</footer>
+<script>
+const SKILLS=[
+ {ar:"صوتي السعودي",en:"saudi-voice",icon:"🗣️",what:"يكلّمك بلهجة سعودية بسيطة، بدون كلمات إنجليزية وبدون فصحى ثقيلة.",when:["في كل محادثة عادية (شرح، سؤال، تلخيص سريع).","لا تُستخدم للخطابات والعقود الرسمية؛ هذي تبقى فصحى."],ex:"استخدم مهارة صوتي السعودي: اشرح لي وش يعني الموصل."},
+ {ar:"وضّح أولًا",en:"clarify-first",icon:"🎯",what:"قبل ما ينفّذ طلبك، يسألك 3 أسئلة بالكثير عن الهدف والجمهور وشكل النتيجة، عشان تطلع النتيجة صح من أول مرة.",when:["طلب غامض أو كبير أو له أكثر من جزء.","أي طلب نتيجته ملف أو رسالة أو تحليل."],ex:"استخدم مهارة وضّح أولًا: أبغى رسالة لعميل تأخر في السداد."},
+ {ar:"كاتب المراسلات",en:"my-voice-correspondence",icon:"✉️",what:"يكتب إيميل أو خطاب أو رسالة واتساب عمل بأسلوبك أنت، مع الألقاب والصيغ السعودية.",when:["رد على إيميل أو رسالة.","خطاب رسمي لجهة أو مدير.","أول مرة: الصق 3 رسائل كتبتها بنفسك عشان يتعلم أسلوبك."],ex:"استخدم مهارة كاتب المراسلات: رد على هذا الإيميل بالموافقة مع طلب تمديد أسبوع."},
+ {ar:"لخّص المستند",en:"document-distiller",icon:"📄",what:"يحوّل أي ملف طويل (PDF، Excel، Word) إلى جدول: الأرقام المهمة، المخاطر، القرارات المطلوبة، الإجراءات. وكل رقم معه مصدره.",when:["عرض سعر، عقد، تقرير، ملف دورة.","قبل أي اجتماع أو قرار على ملف."],ex:"استخدم مهارة لخّص المستند على هذا الملف."},
+ {ar:"صانع الملفات",en:"deliverable-maker",icon:"📎",what:"يحوّل المحتوى اللي وافقت عليه إلى ملف جاهز: Word أو PowerPoint أو Excel، بتنسيق عربي صحيح.",when:["بعد ما يجهز الملخص أو النص وتبيه ملفًا حقيقيًا.","عرض تقديمي من نقاط، جدول Excel من بيانات."],ex:"استخدم مهارة صانع الملفات: حوّل هذا الملخص إلى ملف Word."},
+ {ar:"راجع النتيجة",en:"compare-to-brief",icon:"🔍",what:"يراجع أي نتيجة مقابل طلبك الأصلي بندًا بندًا، يعيد حساب الأرقام، ويعلّم أي شيء بدون مصدر بـ «غير مدعوم».",when:["قبل ما ترسل أو توقّع أي شيء فيه أرقام.","لما تشك إن النتيجة فيها خطأ."],ex:"استخدم مهارة راجع النتيجة: طلبي كان «راجع عرض المورد قبل التوقيع»."},
+ {ar:"أغلق الجلسة",en:"session-closer",icon:"🧾",what:"يلخّص المحادثة الطويلة في موجز يحفظ القرارات والمصادر والأسئلة المفتوحة، ثم تبدأ محادثة جديدة خفيفة.",when:["لما تطول المحادثة (15 رسالة أو أكثر).","قبل ما تقفل الشغل وتبي تكمل بكرة."],ex:"استخدم مهارة أغلق الجلسة."},
+ {ar:"وكيل",en:"wakeel-lite",icon:"🤖",what:"تعطيه هدفًا على ملفات، فيخطط 3-7 خطوات وينفّذها خطوة خطوة على نسخ من الملفات، ويعطيك تقريرًا: تمّ / يحتاجك.",when:["مهمة فيها عدة خطوات على مجلد أو ملفات.","مثال: نظّف ملف المبيعات واستخرج أعلى 3 منتجات في ملف جديد."],ex:"استخدم مهارة وكيل: نظّف هذا الملف واستخرج أعلى 3 منتجات في ملف جديد وأعطني تقريرًا."},
+ {ar:"استشارة",en:"consult-lite",icon:"⚖️",what:"قبل أي قرار، يعطيك 3 زوايا: متفائل، ناقد، عملي، ثم توصية والشرط اللي يغيّرها. (زوايا محاكاة من نموذج واحد، مو خبراء حقيقيين.)",when:["أوقّع ولا لا؟ أقبل العرض؟ أبدأ المشروع؟","أي قرار فيه مال أو التزام."],ex:"استخدم مهارة استشارة: هل أقبل عرض المورد هذا؟"}
+];
+const grid=document.getElementById('grid'),dlg=document.getElementById('dlg'),body=document.getElementById('dlgBody'),toast=document.getElementById('toast');
+SKILLS.forEach((s,i)=>{const c=document.createElement('div');c.className='card';c.tabIndex=0;c.innerHTML=`<div class="icon">${s.icon}</div><h2>${s.ar}</h2><p>${s.what.split('،')[0].split('.')[0]}.</p><div class="cmd">استخدم مهارة ${s.ar}</div>`;c.onclick=()=>open(s);c.onkeydown=e=>{if(e.key==='Enter')open(s)};grid.appendChild(c);});
+function open(s){body.innerHTML=`<h2>${s.icon} ${s.ar}</h2><div class="en">${s.en}</div><h3>وش تسوي؟</h3><p>${s.what}</p><h3>متى أستخدمها؟</h3><ul>${s.when.map(w=>`<li>${w}</li>`).join('')}</ul><h3>مثال جاهز — انسخه والصقه في المحادثة</h3><div class="cmdbox"><code>${s.ex}</code><button class="copy">انسخ</button></div><button class="close">إغلاق</button>`;body.querySelector('.copy').onclick=()=>copy(s.ex);body.querySelector('.close').onclick=()=>dlg.close();dlg.showModal();}
+function copy(t){try{navigator.clipboard.writeText(t).then(show,()=>fallback(t))}catch(e){fallback(t)}}
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');show()}catch(e){}ta.remove()}
+function show(){toast.classList.add('show');setTimeout(()=>toast.classList.remove(
