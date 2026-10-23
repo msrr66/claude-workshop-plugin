@@ -1,10 +1,10 @@
-# حقيبة ورشة «يوم تجهيز Claude» — إضافة واحدة بثماني مهارات
+# حقيبة ورشة «يوم تجهيز Claude» — إضافة واحدة بتسع مهارات
 
 ## التثبيت في Claude.ai أو Cowork (يحتاج خطة Pro أو أعلى)
 1. Customize > Plugins > **Add** > **Add marketplace** > **Add from a repository**.
 2. اكتب: `msrr66/claude-workshop-plugin` (أو رابط المستودع كاملًا).
 3. افتح تبويب **Discover**، اختر **claude-workshop**، واضغط **Add**.
-4. فعّل الإضافة. المهارات الثماني تصير جاهزة؛ استدعِ أي مهارة باسمها الصريح: «استخدم مهارة compare-to-brief».
+4. فعّل الإضافة. المهارات التسع تصير جاهزة؛ استدعِ أي مهارة باسمها الصريح: «استخدم مهارة compare-to-brief».
 
 ## التثبيت في Claude Code
 ```
@@ -15,6 +15,7 @@ claude plugin install claude-workshop@claude-workshop-marketplace
 ## المهارات
 | المهارة | متى |
 |---|---|
+| saudi-voice | يكلّمك بلهجة سعودية بسيطة في كل محادثة (الفصحى للرسمي فقط) |
 | clarify-first | قبل أي طلب غامض أو متعدد الأجزاء |
 | my-voice-correspondence | إيميل أو خطاب بصوتك (3 عينات) |
 | document-distiller | ملف طويل → جدول أرقام/مخاطر/قرارات/إجراءات |

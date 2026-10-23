@@ -1,7 +1,15 @@
 {
   "name": "claude-workshop",
-  "version": "1.0.0",
-  "description": "حقيبة ورشة «يوم تجهيز Claude»: 8 مهارات عربية لغير المبرمجين — وضّح أولًا، كاتب المراسلات بصوتي، مُلخّص المستندات، صانع الملفات، قارن بالموجز، مُغلق الجلسة، وكيل، استشارة.",
-  "author": { "name": "Mansour Al-Sulaimani" },
-  "keywords": ["arabic", "saudi", "workshop", "productivity", "cowork"]
+  "version": "1.1.0",
+  "description": "حقيبة ورشة «يوم تجهيز Claude»: 9 مهارات عربية لغير المبرمجين — صوتي السعودي (لهجة سعودية بسيطة افتراضيًا)، وضّح أولًا، كاتب المراسلات بصوتي، مُلخّص المستندات، صانع الملفات، قارن بالموجز، مُغلق الجلسة، وكيل، استشارة.",
+  "author": {
+    "name": "Mansour Al-Sulaimani"
+  },
+  "keywords": [
+    "arabic",
+    "saudi",
+    "workshop",
+    "productivity",
+    "cowork"
+  ]
 }
